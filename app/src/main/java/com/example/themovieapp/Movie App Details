@@ -1,0 +1,44 @@
+In MVVM now we are a UseCase Layer
+
+
+      View
+    Activity/Fragment
+        |     Presentation
+      Model
+     Live Data
+    View Model
+        |
+    UseCases
+        |   Domain
+    Repository
+        |       Data Layer
+ Local        RemoteSource
+Room Database   API/JSON Retrofit
+
+
+1. what is UseCase
+
+All operations within the MVVM structure define in the ViewModel classes. In this case, after a certain
+Point, there will be to many ViewModel Classes. All this business logic, the whole load of work
+starts to get messy in the ViewModel classes.
+
+In fact, after a point, same thing are located in the different ViewModels classes.
+
+To avoid this complexity, we create various UseCases classes to reduce burden on the ViewModel classes and
+ reduce code duplication and complexity.
+
+
+ The Layers
+
+ 1. Presentation Layer :- The layer interact with the user. this layer including activity, fragment, viewModel classes
+
+ 2. UseCases :- The Layer where user's work to defined.
+
+ 3. Domain :- The layer where business logic operations are performed. for example entity,value objects,
+               exception handling, and logic operations are in this layer.
+
+ 4. Data Layer :- It is the layer where source of all abstract data is. All data and model that
+                  application can use are located in this layer.
+
+ 5. Framework :- The layer that interact with the SDK of framework, so that is, implements the interaction
+                 with the Android SDK and provide custom implementation for the Data Layer.
